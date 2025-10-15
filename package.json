@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "dayjs": "^1.11.18",
     "react-icons": "^5.5.0",
     "recharts": "^3.2.1"
