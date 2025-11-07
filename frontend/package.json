@@ -12,6 +12,7 @@
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
     "axios": "^1.7.7",
+    "dayjs": "^1.11.19",
     "framer-motion": "^11.3.29",
     "jotai": "^2.15.0",
     "maath": "^0.10.8",
