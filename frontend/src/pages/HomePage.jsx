@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaBookOpen, FaUsers, FaSearch } from "react-icons/fa";
 import boy from '../assets/boy.png';
-
+import BookScene from "../components/BookScene.jsx";
 
 export default function HomePage() {
   return (
@@ -9,8 +9,8 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="w-full bg-[#fffdf8]">
-        <div className="flex flex-col items-center justify-center text-center px-6 py-24 mx-auto max-w-7xl">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-snug text-gray-900">
+        <div className="flex flex-col items-center justify-center text-center px-6 py-12 mx-auto max-w-7xl relative">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-snug text-gray-900 relative z-10">
             Books that have{" "}
             <span className="relative inline-block">
               <span className="relative z-10">everyone</span>
@@ -20,12 +20,12 @@ export default function HomePage() {
             talking <span className="text-orange-400 italic">Dive in</span>
           </h1>
 
-          <p className="text-gray-600 mt-6 max-w-xl text-lg">
+          <p className="text-gray-600 mt-3 max-w-xl text-lg relative z-10">
             Read smarter. Connect deeper. Experience books like never before.
           </p>
 
           {/* Login/Register Buttons */}
-          <div className="flex justify-center gap-6 mt-10 flex-wrap">
+          <div className="flex justify-center gap-6 mt-6 flex-wrap relative z-10">
             <Link
               to="/auth"
               className="px-7 py-3 bg-orange-400 text-white font-semibold rounded-full shadow-md hover:scale-105 transition duration-300"
@@ -40,16 +40,11 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Book Image */}
-          
-          <div className="relative mt-8 flex justify-start">
-            
-              <img
-                src={boy}
-                alt="Books Preview"
-                
-              />
-            
+          {/* Book Scene (kept zoomed-in, now behind heading/buttons) */}
+          <div className="relative mt-[-200px] flex justify-start z-0">
+            <div className="relative flex justify-start w-[1000px] h-[800px] -z-10">
+              <BookScene />
+            </div>
           </div>
         </div>
       </section>

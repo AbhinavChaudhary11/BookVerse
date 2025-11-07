@@ -76,3 +76,25 @@ button:focus-visible {
   display: inline-block;
   animation: scroll-text 4s linear infinite;
 }
+
+.svg-text path{
+  fill:transparent;
+  stroke: #fb923c;
+  stroke-width: 2;
+  stroke-dasharray: 1869;
+  stroke-dashoffset: 0;
+  animation: text-animation 4s ease-in-out 1 forwards;
+}
+
+@keyframes text-animation {
+  0% {
+    stroke-dashoffset: 1869;
+  }
+  80%{
+    fill:transparent;
+  }
+  100% {
+    fill: #fb923c;
+    stroke-dashoffset: 0;
+  }
+}
