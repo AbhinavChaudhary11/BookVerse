@@ -24,7 +24,7 @@ export default function Home() {
 
   async function onSearch(q) {
     setLoading(true);
-    const res = await fetch(`${API_BASE}/books/search?q=${encodeURIComponent(q)}&startIndex=0`, {
+    const res = await fetch(`${API_BASE}/api/books/search?q=${encodeURIComponent(q)}&startIndex=0`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();
@@ -42,7 +42,7 @@ export default function Home() {
   }, []);
 
   async function loadMore() {
-    const res = await fetch(`${API_BASE}/books/search?q=${encodeURIComponent(query)}&startIndex=${startIndex}`, {
+    const res = await fetch(`${API_BASE}/api/books/search?q=${encodeURIComponent(query)}&startIndex=${startIndex}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();
