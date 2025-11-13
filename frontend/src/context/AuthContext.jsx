@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const AuthContext = createContext(null);
-const API_BASE = import.meta?.env?.VITE_API_BASE || 'http://localhost:5000/api';
+const API_BASE = import.meta?.env?.VITE_API_BASE ;
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
