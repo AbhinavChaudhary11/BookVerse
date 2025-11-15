@@ -13,7 +13,7 @@ export default function Library() {
   const navigate = useNavigate();
 
   async function load() {
-    const res = await fetch(`${API_BASE}/library`, {
+    const res = await fetch(`${API_BASE}/api/library`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -30,7 +30,7 @@ export default function Library() {
   }, []);
 
   async function remove(googleId) {
-    await fetch(`${API_BASE}/library/remove`, {
+    await fetch(`${API_BASE}/api/library/remove`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ googleId }),
@@ -39,7 +39,7 @@ export default function Library() {
   }
 
   async function markRead(googleId, isRead) {
-    await fetch(`${API_BASE}/library/mark-read`, {
+    await fetch(`${API_BASE}/api/library/mark-read`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ googleId, isRead }),
