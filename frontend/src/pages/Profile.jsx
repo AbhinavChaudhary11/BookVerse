@@ -17,7 +17,7 @@ export default function Profile() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`${API_BASE}/users/me`, { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`${API_BASE}/api/users/me`, { headers: { Authorization: `Bearer ${token}` } });
       setMe(await res.json());
     })();
   }, []);
