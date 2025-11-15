@@ -12,39 +12,39 @@ export default function Friends() {
   const [friendLibrary, setFriendLibrary] = useState(null);
 
   async function loadFriends() {
-    const res = await fetch(`${API_BASE}/friends`, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE}/api/friends`, { headers: { Authorization: `Bearer ${token}` } });
     const data = await res.json();
     setFriends(data);
   }
 
   async function loadRequests() {
-    const res = await fetch(`${API_BASE}/friends/requests`, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE}/api/friends/requests`, { headers: { Authorization: `Bearer ${token}` } });
     setRequests(await res.json());
   }
 
   async function search() {
     if (!query) { setResults([]); return; }
-    const res = await fetch(`${API_BASE}/users/search?q=${encodeURIComponent(query)}`, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE}/api/users/search?q=${encodeURIComponent(query)}`, { headers: { Authorization: `Bearer ${token}` } });
     setResults(await res.json());
   }
 
   async function request(userId) {
-    await fetch(`${API_BASE}/friends/request/${userId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
+    await fetch(`${API_BASE}/api/friends/request/${userId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
   }
 
   async function accept(fromUserId) {
-    await fetch(`${API_BASE}/friends/accept/${fromUserId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
+    await fetch(`${API_BASE}/api/friends/accept/${fromUserId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
     await Promise.all([loadRequests(), loadFriends()]);
   }
 
   async function reject(fromUserId) {
-    await fetch(`${API_BASE}/friends/reject/${fromUserId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
+    await fetch(`${API_BASE}/api/friends/reject/${fromUserId}`, { method: 'POST', headers: { Authorization: `Bearer ${token}` } });
     await loadRequests();
   }
 
   async function viewLibrary(friendId) {
     setActiveFriend(friendId);
-    const res = await fetch(`${API_BASE}/friends/${friendId}/library`, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${API_BASE}/api/friends/${friendId}/library`, { headers: { Authorization: `Bearer ${token}` } });
     setFriendLibrary(await res.json());
   }
 
