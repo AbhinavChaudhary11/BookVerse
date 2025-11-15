@@ -12,7 +12,7 @@ export default function BookCard({ book }) {
   async function addToLibrary(status) {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/library/add`, {
+      const res = await fetch(`${API_BASE}/api/library/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({
