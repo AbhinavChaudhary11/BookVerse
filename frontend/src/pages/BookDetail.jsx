@@ -12,7 +12,7 @@ export default function BookDetail() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`${API_BASE}/books/${id}`, {
+      const res = await fetch(`${API_BASE}/api/books/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -23,7 +23,7 @@ export default function BookDetail() {
   async function addToLibrary(status) {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/library/add`, {
+      const res = await fetch(`${API_BASE}/api/library/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
