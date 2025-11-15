@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 
-console.log("API_BASE from Auth:", API_BASE);
+
 export default function Library() {
   const { token, API_BASE } = useAuth();
   const [library, setLibrary] = useState([]);
   const [filter, setFilter] = useState('all');
   const [view, setView] = useState('grid'); // 'grid' or 'list'
   const navigate = useNavigate();
-
+  console.log("API_BASE from Auth:", API_BASE);
   async function load() {
     const res = await fetch(`${API_BASE}/api/library`, {
       headers: { Authorization: `Bearer ${token}` },
